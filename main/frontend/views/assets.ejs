@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Assets | Investory</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css" href="./css/common.css" />
+    <link rel="stylesheet" type="text/css" href="./css/global.css" />
+    <link rel="stylesheet" type="text/css" href="./css/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="./css/assetspage.css" />
+</head>
+
+<body class="flex-column">
+    <section class="assets assetsSection">
+        <%- include('partials/nav') %>      <!-- Reusable compartments, justification for EJS -->
+        <div class="flex_col">
+            <h1 class="assetsHeader">
+                Assets
+            </h1>
+            <div class="content_box1">
+                <div class="flex_col1">
+                    <h3 class="addRemoveAssetsSubtitle">
+                        Log Transaction
+                    </h3>
+                    <div class="flex_row">
+                        <div class="flex_col2">
+                            Ticker
+                            <input type="text" id="tickerInput" class="tickerLabel rect6"> </p>
+                        </div>
+                        <div class="flex_col2">
+                            Type
+                            <select class="tickerLabel rect6" id="typeInput">
+                                <option value="1">Buy</option>
+                                <option value="2">Sell</option>
+                            </select>
+                        </div>
+                        <div class="flex_col2">
+                            Quantity
+                            <input type="text" id="quantityInput" class="tickerLabel rect6"> </p>
+                        </div>
+                        <div class="flex_col2">
+                            Price
+                            <input type="text" id="priceInput" class="tickerLabel rect6"> </p>
+                        </div>
+                        <div class="flex_col2">
+                            Date
+                            <input type="date" id="dateInput" class="tickerLabel rect6"> </p>
+                        </div>
+                        <div class="flex_col2">
+                            <button class="confirmButton rect6" id="confirmButton" onclick="addTransaction();">
+                                Confirm
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="assetsOverviewBox">
+                <div class="flex_col3" id="assets_list"></div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+
+<script>
+    updateAssetsTable();
+
+    async function addTransaction() {
+        document.getElementById("confirmButton").disabled = true;
+        var ticker = document.getElementById("tickerInput");
+        var type = document.getElementById("typeInput");
+        var quantity = document.getElementById("quantityInput");
+        var price = document.getElementById("priceInput");
+        var date = document.getElementById("dateInput");
+
+        var body = {
+            ticker: ticker.value,
+            quantity: quantity.value,
+            price: price.value,
+            transaction_type: type.value,
+            timestamp: date.value
+        };
+
+        try {
+            const response = await fetch("<%= base_url %>/transaction", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(body)
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                console.error(data);
+                alert(data.message || "An error occurred");
+                throw new Error('Network response was not ok');
+            }
+
+            updateAssetsTable();
+            alert("Transaction Logged");
+
+            ticker.value = "";
+            type.selectedIndex = 0;
+            quantity.value = "";
+            price.value = "";
+            date.value = "";
+        } catch (error) {
+            console.error('Fetch Error:', error);
+        }
+
+        document.getElementById("confirmButton").disabled = false;
+    }
+
+    function updateAssetsTable() {
+        fetch("<%= base_url %>/assets")
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+
+            return response.json()
+        })
+        .then(response => {
+            var assets_list = document.getElementById("assets_list");
+            assets_list.innerHTML = `
+                <div class="flex_row1">
+                    <h3 class="nameColumnHeader">Name</h3>
+                    <h3 class="currentPriceColumnHeader">Current Price</h3>
+                    <h3 class="quantityColumnHeader">Quantity</h3>
+                    <h3 class="gainColumnHeader">Gain</h3>
+                    <h3 class="gainColumnHeader">MWRR</h3>
+                    <h3 class="totalValueColumnHeader">Total Value</h3>
+                    <h3 class="totalCostColumnHeader">Total Cost</h3>
+                </div>
+                <hr class="separatorLine" size="1" />
+            `;
+            
+            var assets = response.data;
+            assets.forEach(asset => {
+                fetch(`<%= base_url %>/assets/${asset.ticker}`)
+                .then(response => {
+                    return response.json()
+                })
+                .then(response => {
+                    var currentPrice = parseFloat(asset.current_price).toFixed(2);
+                    var totalValue = parseFloat(currentPrice * asset.quantity);
+                    var gain = parseFloat(((totalValue - asset.book_cost) / asset.book_cost ) * 100).toFixed(2);
+                    var quantity = parseFloat(asset.quantity).toFixed(2);
+                    var bookCost = parseFloat(asset.book_cost).toFixed(2);
+                    totalValue = totalValue.toFixed(2);
+
+
+                    var mwrr = "N/A";
+                    if (response.data) {
+                        mwrr = parseFloat(response.data * 100).toFixed(2);
+                    }
+
+                    // Check if mwrr is a valid number
+                    if (!isNaN(mwrr)) {
+                        // Convert mwrr to a number for sign and color logic
+                        let mwrrValue = parseFloat(mwrr);
+                        
+                        // Format the mwrr with a + or - sign
+                        let mwrrPriceChangeSign = mwrrValue >= 0 ? '+' : '';
+                        mwrr = `${mwrrPriceChangeSign}${mwrrValue}%`;
+                        
+                        // Set color style based on positive or negative change
+                        mwrrColorStyle = mwrrValue >= 0 ? 'color: #00c814;' : 'color: #FF0000;';
+                    } else {
+                        // If mwrr is not a number (e.g., "N/A"), set a default style or leave it as is
+                        mwrrColorStyle = 'color: #1b1b1b;';  // Default color for "N/A"
+                    }
+
+                    // Format the gain apply + or - sign
+                    let gainPriceChangeSign = gain >= 0 ? '+' : '';
+                    gain = `${gainPriceChangeSign}${gain}`;
+
+                    // Set color style based on positive or negative change
+                    let gainColorStyle = gain >= 0 ? 'color: #00c814;' : 'color: #FF0000;';
+
+
+                    assets_list.innerHTML += `
+                        <div class="assetRow">
+                            <div class="flex_row2">
+                                <img class="rect4" src="https://assets.parqet.com/logos/symbol/${asset.ticker}" width="37" height="37"/>    
+                                <p class="assetName">${asset.ticker}</p>
+                            </div>
+                            <p class="assetCurrentPrice">$${currentPrice}</p>
+                            <p class="assetQuantity">${quantity}</p>
+                            <p class="assetGain" style="${gainColorStyle}">${gain}%</p>
+                            <p class="assetGain" style="${mwrrColorStyle}">${mwrr}</p>
+                            <p class="assetTotalValue">${totalValue}</p>
+                            <p class="assetTotalCost">$${bookCost}</p>
+                        </div>
+                    `;
+                });
+            })
+        })
+    }
+</script>

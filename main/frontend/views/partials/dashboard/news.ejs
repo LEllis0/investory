@@ -1,0 +1,51 @@
+<div class="flex_col17">
+    <div class="flex_row18">
+        <div class="flex_col9">
+            <p class="newsHighlight">
+                <!-- Highlight displaying the title &#x27;News&#x27;. -->
+                News
+            </p>
+            <div class="newsInfo">
+                <a class="link" href="/market">View More</a>
+            </div>
+        </div>
+            <div id="news_articles"></div>
+    </div>
+</div>  
+
+    <script>
+        fetch("<%= base_url %>/news/10")
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+
+                return response.json();
+            })
+            .then((response) => {
+                var news_articles = document.getElementById("news_articles");
+                news_articles.innerHTML = "";
+
+                var news = response.data.splice(0, 3);
+                news.forEach((article) => {
+                    news_articles.innerHTML += `
+                <div class="newsItem1">
+                    <div class="rect9">
+                        <img src="${article.image}" width=86 height=59>    
+                    </div>
+                    <div class="flex_col18">
+                        <a href="${article.link}" target="_blank">
+                            <p class="newsContent1">
+                                ${article.title}
+                            </p>
+                            </a>
+                        <div class="newsTimeStamp1">
+                            ${article.date}
+                        </div>
+                    </div>
+                </div>
+                `;
+                });
+            });
+    </script>
+</div>

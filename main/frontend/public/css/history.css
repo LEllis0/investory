@@ -1,0 +1,488 @@
+
+.historyv3.overviewSection {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: #ecedf2;
+  overflow: hidden;
+}
+.historyv3 .contentBox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 10.56%;
+  background-color: white;
+}
+
+.historyv3 .row1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 50px;
+  width: 1200px;
+  height: 550px;
+}
+.historyv3 .flexRowOverview {
+  display: flex;
+  justify-content: space-between;
+  gap: 0 10px;
+  margin: 25px auto 27px;
+  width: 93.61%;
+}
+.historyv3 .overviewImageMain {
+  margin: 11px 0 1px;
+  width: 155px;
+  min-width: 0;
+}
+.historyv3 .flexRowInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0 10px;
+  width: 542px;
+  min-width: 0;
+}
+.historyv3 .textOverview {
+  min-width: 0;
+  font: 600 16px/1.18 Inter, Helvetica, Arial, serif;
+  color: #1b1b1b;
+}
+.historyv3 .textAssets {
+  min-width: 0;
+  font: 600 16px/1.18 Inter, Helvetica, Arial, serif;
+  color: #1b1b1b;
+}
+.historyv3 .textWatchlist {
+  min-width: 0;
+  font: 600 16px/1.18 Inter, Helvetica, Arial, serif;
+  color: #1b1b1b;
+}
+.historyv3 .btnViewHistory {
+  display: flex;
+  justify-content: center;
+  min-width: 119px;
+  font: 600 16px/1.18 Inter, Helvetica, Arial, serif;
+  color: #1b1b1b;
+  text-align: center;
+  background-color: #d7fe03;
+  border-radius: 21.5px;
+  padding: 12px 30px;
+}
+.historyv3 .textNews {
+  min-width: 0;
+  font: 600 16px/1.18 Inter, Helvetica, Arial, serif;
+  color: #1b1b1b;
+}
+.historyv3 .additionalInfoBox {
+  margin: 4px 0 1px;
+  width: 38px;
+  min-width: 0;
+  min-height: 38px;
+  background-color: #afafaf;
+  border-radius: 19px;
+}
+.historyv3 .flexRowHistoryData {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 0 40px;
+  margin: 156px auto 43px;
+  width: 89.44%;
+}
+.historyv3 .flexColContentHistory {
+  display: flex;
+  flex-direction: column;
+  gap: 20px 0;
+  width: 1090px;
+  min-width: 0;
+}
+.historyv3 .titleHistory {
+  font: 700 32px/1.21 Inter, Helvetica, Arial, serif;
+  color: #1b1b1b;
+}
+.historyv3 .contentBoxHistoryDetails {
+  position: relative;
+  display: flex;
+  flex:1;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 20px;
+}
+.historyv3 .flexRowDetails {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0 10px;
+  margin: 29px auto 43px;
+  width: 86.97%;
+}
+.historyv3 .flexColName {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 54px 0;
+  width: 127px;
+  min-width: 0;
+}
+.historyv3 .subtitleName {
+  width: 54.33%;
+  font: 500 20px/1.2 Inter, Helvetica, Arial, serif;
+  color: #1b1b1b;
+}
+.historyv3 .flexColImages {
+  display: flex;
+  flex-direction: column;
+  gap: 54px 0;
+  width: 100%;
+}
+.historyv3 .flexRowImage1 {
+  display: flex;
+  gap: 0 20px;
+}
+.historyv3 .imagePlaceholder1 {
+  width: 37px;
+  min-width: 0;
+  min-height: 37px;
+  background-color: #bec0ce;
+  border-radius: 19px;
+}
+.historyv3 .textNameAmazon1 {
+  margin: 6px 0 9px;
+  min-width: 0;
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+}
+.historyv3 .flexRowImage2 {
+  display: flex;
+  gap: 0 20px;
+}
+.historyv3 .imagePlaceholder2 {
+  width: 37px;
+  min-width: 0;
+  min-height: 37px;
+  background-color: #bec0ce;
+  border-radius: 19px;
+}
+.historyv3 .textNameAmazon2 {
+  margin: 6px 0 9px;
+  min-width: 0;
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+}
+.historyv3 .flexRowImage3 {
+  display: flex;
+  gap: 0 20px;
+}
+.historyv3 .imagePlaceholder3 {
+  width: 37px;
+  min-width: 0;
+  min-height: 37px;
+  background-color: #bec0ce;
+  border-radius: 19px;
+}
+.historyv3 .textNameAmazon3 {
+  margin: 6px 0 9px;
+  min-width: 0;
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+}
+.historyv3 .flexRowImage4 {
+  display: flex;
+  gap: 0 20px;
+}
+.historyv3 .imagePlaceholder4 {
+  width: 37px;
+  min-width: 0;
+  min-height: 37px;
+  background-color: #bec0ce;
+  border-radius: 19px;
+}
+.historyv3 .textNameAmazon4 {
+  margin: 6px 0 9px;
+  min-width: 0;
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+}
+.historyv3 .flexRowImage5 {
+  display: flex;
+  gap: 0 20px;
+}
+.historyv3 .imagePlaceholder5 {
+  width: 37px;
+  min-width: 0;
+  min-height: 37px;
+  background-color: #bec0ce;
+  border-radius: 19px;
+}
+.historyv3 .textNameAmazon5 {
+  margin: 6px 0 9px;
+  min-width: 0;
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+}
+.historyv3 .flexRowImage6 {
+  display: flex;
+  gap: 0 20px;
+}
+.historyv3 .imagePlaceholder6 {
+  width: 37px;
+  min-width: 0;
+  min-height: 37px;
+  background-color: #bec0ce;
+  border-radius: 19px;
+}
+.historyv3 .textNameAmazon6 {
+  margin: 6px 0 9px;
+  min-width: 0;
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+}
+.historyv3 .flexColType {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px 0;
+  width: 48px;
+  min-width: 0;
+}
+.historyv3 .subtitleType {
+  font: 500 20px/1.2 Inter, Helvetica, Arial, serif;
+  color: #1b1b1b;
+}
+.historyv3 .flexColTypeList {
+  display: flex;
+  flex-direction: column;
+  gap: 69px 0;
+  width: 68.75%;
+}
+.historyv3 .textTypeBuy1 {
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+}
+.historyv3 .textTypeSell1 {
+  margin: 0 2px 0 0;
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+}
+.historyv3 .textTypeBuy2 {
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+}
+.historyv3 .textTypeBuy3 {
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+}
+.historyv3 .textTypeBuy4 {
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+}
+.historyv3 .textTypeBuy5 {
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+}
+.historyv3 .flexColFilledOn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px 0;
+  width: 156px;
+  min-width: 0;
+}
+.historyv3 .subtitleFilledOn {
+  font: 500 20px/1.2 Inter, Helvetica, Arial, serif;
+  color: #1b1b1b;
+}
+.historyv3 .flexColFilledOnList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 69px 0;
+  width: 100%;
+}
+.historyv3 .textFilledDate1 {
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+  letter-spacing: -0.7px;
+}
+.historyv3 .textFilledDate2 {
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+  letter-spacing: -0.7px;
+}
+.historyv3 .textFilledDate3 {
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+  letter-spacing: -0.7px;
+}
+.historyv3 .textFilledDate4 {
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+  letter-spacing: -0.7px;
+}
+.historyv3 .textFilledDate5 {
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+  letter-spacing: -0.7px;
+}
+.historyv3 .textFilledDate6 {
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+  letter-spacing: -0.7px;
+}
+.historyv3 .flexColQuantity {
+  display: flex;
+  flex-direction: column;
+  gap: 60px 0;
+  width: 82px;
+  min-width: 0;
+}
+.historyv3 .subtitleQuantity {
+  font: 500 20px/1.2 Inter, Helvetica, Arial, serif;
+  color: #1b1b1b;
+}
+.historyv3 .flexColQuantityList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 69px 0;
+  margin: 0 34px 0 36px;
+}
+.historyv3 .textQuantity1 {
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+}
+.historyv3 .textQuantity2 {
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+}
+.historyv3 .textQuantity3 {
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+}
+.historyv3 .textQuantity4 {
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+}
+.historyv3 .textQuantity5 {
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+}
+.historyv3 .textQuantity6 {
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+}
+.historyv3 .flexColTotal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px 0;
+  width: 75px;
+  min-width: 0;
+}
+.historyv3 .subtitleTotal {
+  font: 500 20px/1.2 Inter, Helvetica, Arial, serif;
+  color: #1b1b1b;
+}
+.historyv3 .flexColTotalList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 69px 0;
+  width: 100%;
+}
+.historyv3 .textTotal1 {
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+}
+.historyv3 .textTotal2 {
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+}
+.historyv3 .textTotal3 {
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+}
+.historyv3 .textTotal4 {
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+}
+.historyv3 .textTotal5 {
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+}
+.historyv3 .textTotal6 {
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+}
+.historyv3 .flexColDivider {
+  position: absolute;
+  top: 76px;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 90px 0;
+  width: 1090px;
+  height: 462px;
+}
+.historyv3 .lineDivider1 {
+  margin: 0 3px 0 0;
+  width: 1087px;
+  height: 2px;
+  min-height: 2px;
+  background-color: #ecedf2;
+}
+.historyv3 .lineDivider2 {
+  width: 1090px;
+  height: 2px;
+  min-height: 2px;
+  background-color: #ecedf2;
+}
+.historyv3 .lineDivider3 {
+  width: 1090px;
+  height: 2px;
+  min-height: 2px;
+  background-color: #ecedf2;
+}
+.historyv3 .lineDivider4 {
+  width: 1090px;
+  height: 2px;
+  min-height: 2px;
+  background-color: #ecedf2;
+}
+.historyv3 .lineDivider5 {
+  width: 1090px;
+  height: 2px;
+  min-height: 2px;
+  background-color: #ecedf2;
+}
+.historyv3 .lineDivider6 {
+  width: 1090px;
+  height: 2px;
+  min-height: 2px;
+  background-color: #ecedf2;
+}
+.historyv3 .flexRowAdditionalImages {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+  gap: 10px;
+}
+
+.historyv3 .additionalImage1 {
+  width: 40px;
+  min-width: 0;
+}
+.historyv3 .textFraction1 {
+  min-width: 0;
+  font: 500 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: #bec0ce;
+}
+.historyv3 .additionalImage2 {
+  width: 40px;
+  min-width: 0;
+}

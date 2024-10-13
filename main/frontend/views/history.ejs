@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>History | Investory</title>
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+        <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+            integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+            crossorigin="anonymous"
+        />
+        <link rel="stylesheet" type="text/css" href="./css/common.css" />
+        <link rel="stylesheet" type="text/css" href="./css/global.css" />
+        <link rel="stylesheet" type="text/css" href="./css/fonts.css" />
+        <link rel="stylesheet" type="text/css" href="./css/history.css" />
+
+        <style>
+            body {
+                background-color: #ecedf2;
+            }
+        </style>
+    </head>
+
+    <body class="flex-column">
+        <section class="historyv3 overviewSection">
+            <%- include('partials/nav') %>
+            <div class="flexRowHistoryData">
+                <div class="flexColContentHistory">
+                    <h1 class="titleHistory">History</h1>
+                    <div class="row1">
+                        <div class="contentBoxHistoryDetails">
+                            <div class="flexRowDetails">
+                                <div class="flexColName">
+                                    <h3 class="subtitleName">Name</h3>
+                                    <div
+                                        class="flexColImages"
+                                        id="list_names"
+                                    ></div>
+                                </div>
+                                <div class="flexColType">
+                                    <h3 class="subtitleType">Type</h3>
+                                    <div
+                                        class="flexColTypeList"
+                                        id="list_types"
+                                    ></div>
+                                </div>
+                                <div class="flexColFilledOn">
+                                    <h3 class="subtitleFilledOn">Filled On</h3>
+                                    <div
+                                        class="flexColFilledOnList"
+                                        id="list_dates"
+                                    ></div>
+                                </div>
+                                <div class="flexColQuantity">
+                                    <h3 class="subtitleQuantity">Quantity</h3>
+                                    <div
+                                        class="flexColQuantityList"
+                                        id="list_quantity"
+                                    ></div>
+                                </div>
+                                <div class="flexColTotal">
+                                    <h3 class="subtitleTotal">Total</h3>
+                                    <div
+                                        class="flexColTotalList"
+                                        id="list_totals"
+                                    ></div>
+                                </div>
+                            </div>
+                            <div class="flexColDivider">
+                                <hr class="lineDivider1" size="1" />
+                            </div>
+                        </div>
+
+                        <div class="flexRowAdditionalImages">
+                            <img
+                                id="left_arrow"
+                                class="additionalImage1"
+                                src="./assets/left_arrow.svg"
+                                alt="Previous Page"
+                            />
+                            <p id="page_indicator" class="textFraction1">1/4</p>
+                            <img
+                                id="right_arrow"
+                                class="additionalImage2"
+                                src="./assets/right_arrow.svg"
+                                alt="Next Page"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>
+
+<script>
+    const itemsPerPage = 5; // Number of transactions per page
+    let currentPage = 1;
+    let totalPages = 1;
+    let transactions = [];
+
+    function renderPage(page) {
+        const startIndex = (page - 1) * itemsPerPage;
+        const endIndex = startIndex + itemsPerPage;
+        const pageItems = transactions.slice(startIndex, endIndex);
+
+        const names = document.getElementById("list_names");
+        const types = document.getElementById("list_types");
+        const dates = document.getElementById("list_dates");
+        const quantities = document.getElementById("list_quantity");
+        const totals = document.getElementById("list_totals");
+
+        names.innerHTML = "";
+        types.innerHTML = "";
+        dates.innerHTML = "";
+        quantities.innerHTML = "";
+        totals.innerHTML = "";
+
+        pageItems.forEach((transaction) => {
+            const type = transaction.transaction_type == 1 ? "Buy" : "Sell";
+
+            // Format the current price to two decimal places
+            const formattedQuantity = parseFloat(transaction.quantity).toFixed(4).replace(/\.?0+$/, '');
+
+            // Format the quantity: remove trailing zeros if it's an integer, else show up to 2 decimal places
+            const formattedBookCost = parseFloat(transaction.book_cost).toFixed(2);
+
+            names.innerHTML += `
+                <div class="flexRowImage1">
+                    <img class="imagePlaceholder1" src="https://assets.parqet.com/logos/symbol/${transaction.ticker}" width="37" height="37"/>    
+                    <p class="textNameAmazon1">${transaction.ticker}</p>
+                </div>
+            `;
+
+            types.innerHTML += `<p class="textTypeBuy1">${type}</p>`;
+            dates.innerHTML += `<p class="textFilledDate1">${transaction.timestamp}</p>`;
+            quantities.innerHTML += `<p class="textQuantity1">${formattedQuantity}</p>`;
+            totals.innerHTML += `<p class="textTotal4">$${formattedBookCost}</p>`;
+        });
+
+        updatePageIndicator();
+        updateArrows();
+    }
+
+    function updatePageIndicator() {
+        const pageIndicator = document.getElementById("page_indicator");
+        pageIndicator.textContent = `${currentPage}/${totalPages}`;
+    }
+
+    function updateArrows() {
+        const leftArrow = document.getElementById("left_arrow");
+        const rightArrow = document.getElementById("right_arrow");
+
+        leftArrow.style.visibility = currentPage === 1 ? "hidden" : "visible";
+        rightArrow.style.visibility =
+            currentPage === totalPages ? "hidden" : "visible";
+    }
+
+    function goToNextPage() {
+        if (currentPage < totalPages) {
+            currentPage++;
+            renderPage(currentPage);
+        }
+    }
+
+    function goToPreviousPage() {
+        if (currentPage > 1) {
+            currentPage--;
+            renderPage(currentPage);
+        }
+    }
+
+    document
+        .getElementById("right_arrow")
+        .addEventListener("click", goToNextPage);
+    document
+        .getElementById("left_arrow")
+        .addEventListener("click", goToPreviousPage);
+
+    fetch("<%= base_url %>/transactions")
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+            return response.json();
+        })
+        .then((response) => {
+            transactions = response.data;
+            totalPages = Math.ceil(transactions.length / itemsPerPage);
+            renderPage(currentPage);
+        })
+        .catch((error) => console.error("Error fetching transactions:", error));
+</script>

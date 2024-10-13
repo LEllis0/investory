@@ -1,0 +1,550 @@
+.assets.assetsSection {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: #ecedf2;
+  overflow: hidden;
+}
+
+.assets .flex_col {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px 0;
+  margin: 156px auto 89px;
+  width: 87.43%;
+}
+.assets .assetsHeader {
+  margin: 0 3px;
+  font: 700 32px/1.21 Inter, Helvetica, Arial, serif;
+  color: #1b1b1b;
+}
+.assets .content_box1 {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 0 3px;
+  background-color: white;
+  border-radius: 20px;
+}
+.assets .flex_col1 {
+  display: flex;
+  flex-direction: column;
+  place-content: flex-start space-between;
+  gap: 30px 0;
+  margin: 30px 33px 34px 30px;
+}
+.assets .addRemoveAssetsSubtitle {
+  font: 500 20px/1.2 Inter, Helvetica, Arial, serif;
+  color: #1b1b1b;
+}
+.assets .flex_row {
+  display: flex;
+  gap: 0 10px;
+  flex: 1;
+}
+.assets .flex_col2 {
+  display: flex;
+  flex-direction: column;
+  gap: 11px 0;
+  width: 200px;
+  min-width: 0;
+  flex: 1;
+}
+.assets .tickerLabel {
+  font: 500 16px/1.18 Inter, Helvetica, Arial, serif;
+  color: black;
+}
+.assets .rect6 {
+  min-height: 38px;
+  border-radius: 5px;
+  outline: 2px solid #ecedf2;
+  outline-offset: -2px;
+}
+.assets .typeLabel {
+  font: 500 16px/1.18 Inter, Helvetica, Arial, serif;
+  color: black;
+}
+.assets .quantityLabel {
+  font: 500 16px/1.18 Inter, Helvetica, Arial, serif;
+  color: black;
+}
+.assets .priceLabel {
+  font: 500 16px/1.18 Inter, Helvetica, Arial, serif;
+  color: black;
+}
+.assets .dateLabel {
+  font: 500 16px/1.18 Inter, Helvetica, Arial, serif;
+  color: black;
+}
+.assets .confirmButton {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0 0;
+  min-width: 143px;
+  font: 500 16px/1.18 Inter, Helvetica, Arial, serif;
+  color: black;
+  text-align: center;
+  background-color: #d7fe03;
+  border-radius: 5px;
+  padding: 9.5px 40px;
+}
+.confirmButton:hover {
+  font-weight: bolder;
+  cursor: pointer;
+}
+.confirmButton:disabled {
+  font-weight: bolder;
+  color: grey;
+}
+.assets .assetsOverviewBox {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 20px;
+}
+.assets .flex_col3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 29px 0 41px;
+  flex:1;
+  justify-content: center;
+}
+.assets .flex_row1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  width: 90%;
+}
+.assets .nameColumnHeader {
+  min-width: 0;
+  font: 500 20px/1.2 Inter, Helvetica, Arial, serif;
+  color: #1b1b1b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:100px;
+  
+}
+.assets .currentPriceColumnHeader {
+  min-width: 0;
+  font: 500 20px/1.2 Inter, Helvetica, Arial, serif;
+  color: #1b1b1b;
+  letter-spacing: -0.1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:150px;
+}
+.assets .quantityColumnHeader {
+  min-width: 0;
+  font: 500 20px/1.2 Inter, Helvetica, Arial, serif;
+  color: #1b1b1b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:100px;
+}
+.assets .gainColumnHeader {
+  min-width: 0;
+  font: 500 20px/1.2 Inter, Helvetica, Arial, serif;
+  color: #1b1b1b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:100px;
+}
+.assets .totalValueColumnHeader {
+  font: 500 20px/1.2 Inter, Helvetica, Arial, serif;
+  color: #1b1b1b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:150px;
+}
+.assets .totalCostColumnHeader {
+  min-width: 0;
+  font: 500 20px/1.2 Inter, Helvetica, Arial, serif;
+  color: #1b1b1b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:150px;
+}
+.assets .separatorLine {
+  margin: 23px 0 0;
+  width: 100%;
+  height: 2px;
+  min-height: 2px;
+  background-color: #ecedf2;
+}
+.assets .assetRow {
+  display: flex;
+  gap: 80px;
+  margin: 29px 0 0;
+  width: 88.17%;
+  flex:1;
+  justify-content: center;
+  align-items: center;
+}
+.assets .flex_row2 {
+  display: flex;
+  gap: 0 20px;
+  width: 127px;
+  min-width: 0;
+}
+.assets .rect4 {
+  width: 37px;
+  min-width: 0;
+  min-height: 37px;
+  background-color: #bec0ce;
+  border-radius: 19px;
+}
+.assets .assetName {
+  margin: 6px 0 9px;
+  min-width: 0;
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+}
+.assets .assetCurrentPrice {
+  margin: 6px 0 9px;
+  min-width: 0;
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+  width:100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.assets .assetQuantity {
+  align-self: center;
+  margin: 6px 0 9px;
+  min-width: 0;
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+  width:100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.assets .assetGain {
+  margin: 6px 0 9px;
+  min-width: 0;
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+  width:100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.assets .assetTotalValue {
+  margin: 6px 0 9px;
+  min-width: 0;
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+  width:100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.assets .assetTotalCost {
+  margin: 6px 0 9px;
+  min-width: 0;
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+  width:100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.assets .separatorLine1 {
+  margin: 24px 0 0;
+  width: 100%;
+  height: 0.35%;
+  min-height: 2px;
+  background-color: #ecedf2;
+}
+.assets .anotherAssetRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 0 10px;
+  margin: 29px 0 0;
+  width: 88.17%;
+}
+.assets .anotherAmazonName {
+  margin: 6px 0 9px;
+  min-width: 0;
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+}
+.assets .anotherAmazonCurrentPrice {
+  margin: 6px 0 9px;
+  min-width: 0;
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+}
+.assets .anotherAmazonQuantity {
+  margin: 6px 0 9px;
+  min-width: 0;
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+}
+.assets .anotherAmazonGain {
+  margin: 6px 0 9px;
+  min-width: 0;
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+}
+.assets .anotherAmazonTotalValue {
+  margin: 6px 0 9px;
+  min-width: 0;
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+}
+.assets .anotherAmazonTotalCost {
+  margin: 6px 0 9px;
+  min-width: 0;
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+}
+.assets .separatorLine2 {
+  margin: 24px 0 0;
+  width: 100%;
+  height: 0.35%;
+  min-height: 2px;
+  background-color: #ecedf2;
+}
+.assets .yetAnotherAssetRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 0 10px;
+  margin: 29px 0 0;
+  width: 88.17%;
+}
+.assets .yetAnotherAmazonName {
+  margin: 6px 0 9px;
+  min-width: 0;
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+}
+.assets .yetAnotherAmazonCurrentPrice {
+  margin: 6px 0 9px;
+  min-width: 0;
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+}
+.assets .yetAnotherAmazonQuantity {
+  margin: 6px 0 9px;
+  min-width: 0;
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+}
+.assets .yetAnotherAmazonGain {
+  margin: 6px 0 9px;
+  min-width: 0;
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+}
+.assets .yetAnotherAmazonTotalValue {
+  margin: 6px 0 9px;
+  min-width: 0;
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+}
+.assets .yetAnotherAmazonTotalCost {
+  margin: 6px 0 9px;
+  min-width: 0;
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+}
+.assets .separatorLine3 {
+  margin: 24px 0 0;
+  width: 100%;
+  height: 0.35%;
+  min-height: 2px;
+  background-color: #ecedf2;
+}
+.assets .finalAssetRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 0 10px;
+  margin: 29px 0 0;
+  width: 88.17%;
+}
+.assets .finalAmazonName {
+  margin: 6px 0 9px;
+  min-width: 0;
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+}
+.assets .finalAmazonCurrentPrice {
+  margin: 6px 0 9px;
+  min-width: 0;
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+}
+.assets .finalAmazonQuantity {
+  margin: 6px 0 9px;
+  min-width: 0;
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+}
+.assets .finalAmazonGain {
+  margin: 6px 0 9px;
+  min-width: 0;
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+}
+.assets .finalAmazonTotalValue {
+  margin: 6px 0 9px;
+  min-width: 0;
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+}
+.assets .finalAmazonTotalCost {
+  margin: 6px 0 9px;
+  min-width: 0;
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+}
+.assets .line {
+  margin: 24px 0 0;
+  width: 100%;
+  height: 0.35%;
+  min-height: 2px;
+  background-color: #ecedf2;
+}
+.assets .flex_row3 {
+  display: flex;
+  justify-content: space-between;
+  gap: 0 10px;
+  margin: 29px 0 0;
+  width: 88.17%;
+}
+.assets .highlight1 {
+  margin: 6px 0 9px;
+  min-width: 0;
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+}
+.assets .separatorLine4 {
+  margin: 24px 0 0;
+  width: 100%;
+  height: 0.35%;
+  min-height: 2px;
+  background-color: #ecedf2;
+}
+.assets .additionalAssetRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 0 10px;
+  margin: 29px 0 0;
+  width: 88.17%;
+}
+.assets .additionalAmazonName {
+  margin: 6px 0 9px;
+  min-width: 0;
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+}
+.assets .additionalAmazonCurrentPrice {
+  margin: 6px 0 9px;
+  min-width: 0;
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+}
+.assets .additionalAmazonQuantity {
+  margin: 6px 0 9px;
+  min-width: 0;
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+}
+.assets .additionalAmazonGain {
+  margin: 6px 0 9px;
+  min-width: 0;
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+}
+.assets .additionalAmazonTotalValue {
+  margin: 6px 0 9px;
+  min-width: 0;
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+}
+.assets .additionalAmazonTotalCost {
+  margin: 6px 0 9px;
+  min-width: 0;
+  font: 400 18px/1.22 Inter, Helvetica, Arial, serif;
+  color: black;
+}
+.assets .overviewContentBox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 8.23%;
+  background-color: white;
+}
+.assets .overviewImageRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 0 10px;
+  margin: 25px auto 27px;
+  width: 93.61%;
+}
+.assets .overviewImage {
+  margin: 11px 0 1px;
+  width: 155px;
+  min-width: 0;
+}
+.assets .navigationButtonsRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0 10px;
+  width: 542px;
+  min-width: 0;
+}
+.assets .overviewTitle {
+  min-width: 0;
+  font: 600 16px/1.18 Inter, Helvetica, Arial, serif;
+  color: #1b1b1b;
+}
+.assets .assetsButton {
+  display: flex;
+  justify-content: center;
+  min-width: 119px;
+  font: 600 16px/1.18 Inter, Helvetica, Arial, serif;
+  color: #1b1b1b;
+  text-align: center;
+  background-color: #d7fe03;
+  border-radius: 21.5px;
+  padding: 12px 32px;
+}
+.assets .watchlistTitle {
+  min-width: 0;
+  font: 600 16px/1.18 Inter, Helvetica, Arial, serif;
+  color: #1b1b1b;
+}
+.assets .historyTitle {
+  min-width: 0;
+  font: 600 16px/1.18 Inter, Helvetica, Arial, serif;
+  color: #1b1b1b;
+}
+.assets .newsTitle {
+  min-width: 0;
+  font: 600 16px/1.18 Inter, Helvetica, Arial, serif;
+  color: #1b1b1b;
+}
+.assets .overviewRectangle {
+  margin: 4px 0 1px;
+  width: 38px;
+  min-width: 0;
+  min-height: 38px;
+  background-color: #afafaf;
+  border-radius: 19px;
+}

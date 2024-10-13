@@ -1,0 +1,89 @@
+<div class="flex_col7">
+    <p class="assetsHighlight">
+        <!-- Highlight displaying the term &#x27;Assets&#x27;. -->
+        Assets
+    </p>
+    <div id="assets_list" class="assets-list-container"></div>
+</div>
+
+<script>
+        populateAssets(<%-JSON.stringify(assets_data)%>);
+
+        // Function to populate the assets section with data
+        function populateAssets(assets) {
+        const container = document.getElementById('assets_list');
+        container.innerHTML = "";
+
+        assets.forEach(asset => {
+            const assetRow = document.createElement('div');
+            assetRow.className = 'flex_row7';
+
+            // Format the current price to two decimal places
+            const formattedCurrentPrice = parseFloat(asset.current_price).toFixed(2);
+
+            // Format the quantity: remove trailing zeros if it's an integer, else show up to 4 decimal places
+            const formattedQuantity = parseFloat(asset.quantity).toFixed(4).replace(/\.?0+$/, '');
+
+            // Format the average purchase price to two decimal places and apply + or - sign
+            let formattedAveragePurchasePrice = parseFloat(asset.average_purchase_price).toFixed(2);
+            let priceChangeSign = asset.average_purchase_price >= 0 ? '+' : '';
+            formattedAveragePurchasePrice = `${priceChangeSign}${formattedAveragePurchasePrice}`;
+
+            // Set color style based on positive or negative change
+            let colorStyle = asset.average_purchase_price >= 0 ? 'color: #00c814;' : 'color: #FF0000;';
+
+            assetRow.innerHTML = `
+                <div class="flex_row19">
+                    <img src="https://assets.parqet.com/logos/symbol/${asset.ticker}" width="36" height="36"/>
+                    <div class="flex_col10">
+                        <a onclick="showStockHistoryChart('${asset.ticker}')" class="assetHighlight"><u>${asset.ticker}</u></a>
+                        <div class="assetSharesInfo">${formattedQuantity} Shares</div>
+                    </div>
+                </div>
+                <div class="flex_col19">
+                    <p class="assetValueHighlight">${formattedCurrentPrice}</p>
+                    <div class="assetChangeInfo" style="${colorStyle}">${formattedAveragePurchasePrice}</div>
+                </div>
+            `;
+
+            container.appendChild(assetRow);
+        });
+    
+
+
+            // Check if assets exceed 5 and apply scrollable class
+            if (assets.length > 5) {
+                container.classList.add('scrollable');
+            } else {
+                container.classList.remove('scrollable');
+            }
+        }
+</script>
+
+<style>
+    .assets-list-container {
+        max-height: none;
+        overflow: hidden;
+        padding-right: 15px; /* Add padding to push the scrollbar to the right */
+    }
+
+    .assets-list-container.scrollable {
+        max-height: 300px; /* Adjust this value to the height of 5 assets */
+        overflow-y: scroll;
+    }
+
+    /* Optional: Customize the scrollbar appearance */
+    .assets-list-container.scrollable::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    .assets-list-container.scrollable::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 4px;
+    }
+
+    /* Adjust the scrollbar to push it to the right */
+    .assets-list-container.scrollable::-webkit-scrollbar {
+        margin-right: -15px; /* Negative margin to align scrollbar with the right edge */
+    }
+</style>

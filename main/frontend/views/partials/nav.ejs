@@ -1,0 +1,20 @@
+<div class="navbar">
+    <div class="navbar-body">
+        <img class="image" src="./assets/logo.png" alt="alt text" />
+        <div class="navbar-links">
+            <button class="<%= current_page === 'dashboard' ? 'nav-link-active' : 'nav-link' %>">
+                <a class="link" href="/">Dashboard</a>
+            </button>
+            <p class="<%= current_page === 'assets' ? 'nav-link-active' : 'nav-link' %>">
+                <a class="link" href="/portfolio">Assets</a>
+            </p>
+            <p class="<%= current_page === 'history' ? 'nav-link-active' : 'nav-link' %>">
+                <a class="link" href="/history">History</a>
+            </p>
+            <p class="<%= current_page === 'markets' ? 'nav-link-active' : 'nav-link' %>">
+                <a class="link" href="/market">Market</a>
+            </p>
+        </div>
+        <div class="rectPlaceholder5"></div>
+    </div>
+</div>

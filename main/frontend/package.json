@@ -1,0 +1,21 @@
+{
+  "name": "ufp-frontend",
+  "version": "1.0.0",
+  "description": "This README would normally document whatever steps are necessary to get your application up and running.",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm install && node index.js",
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "install": "^0.13.0",
+    "jest": "^29.7.0",
+    "npm": "^10.8.2"
+  }
+}

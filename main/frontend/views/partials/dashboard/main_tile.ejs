@@ -1,0 +1,158 @@
+<div class="flex_row1">
+    <div class="flex_col2">
+        <div class="flex_col3">
+            <p class="portfolioHighlight">
+                Portfolio
+            </p>
+            <div class="portfolioDate" id="portfolio_date"></div>
+        </div>
+        <div class="flex_row2">
+            <h1 class="portfolioValueTitle" id="portfolio_value"></h1>
+            <p class="portfolioChangeHighlight" id="portfolio_change"></p>
+        </div>
+        <div class="flex_row3">
+            <div class="flex_col4">
+                <div class="investmentTitle">
+                    Invested
+                </div>
+                <p class="investedAmountHighlight" id="total_invested"></p>
+            </div>
+
+            <img class="image3" src="./assets/line.svg" alt="alt text" />
+
+            <div class="flex_col5">
+                <div class="returnTitle">
+                    Return
+                </div>
+                <p class="returnAmountHighlight" id="return_on_investment"></p>
+            </div>
+        </div>
+    </div>
+    <div class="flex_col6">
+        <!--<img class="portfolioImage" src="./assets/7216af2c0f6ded3ec674d57a4370941f.svg" alt="alt text" />-->
+        <canvas id="portfolioChart" width="320" height="160"></canvas>
+
+        <div class="flex_row4">
+            <button class="timeframeActive" id="week" onclick="reCalculatePortfolioForTime('week');">
+                1W
+            </button>
+            <button class="timeframeButton" id="month" onclick="reCalculatePortfolioForTime('month');">
+                1M
+            </button>
+            <button class="timeframeButton" id="3month" onclick="reCalculatePortfolioForTime('3month');">
+                3M
+            </button>
+            <button class="timeframeButton" id="year" onclick="reCalculatePortfolioForTime('year');">
+                1Y
+            </button>
+            <button class="timeframeButton" id="max" onclick="reCalculatePortfolioForTime('max');">
+                MAX
+            </button>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    reCalculatePortfolioForTime("max")
+
+    function reCalculatePortfolioForTime(time) {
+        document.getElementById("week").className = "timeframeButton";
+        document.getElementById("month").className = "timeframeButton";
+        document.getElementById("3month").className = "timeframeButton";
+        document.getElementById("year").className = "timeframeButton";
+        document.getElementById("max").className = "timeframeButton";
+        document.getElementById(time).className = "timeframeActive";
+
+        fetch(`<%= base_url %>/portfolio/${time}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+
+            return response.json()
+        })
+        .then(response => {
+            var data = response.data;
+
+            document.getElementById("portfolio_date").innerHTML = `${data.startDate} - ${data.currentDate}`;
+            document.getElementById("total_invested").innerHTML = `$${data.totalInvested}`;
+            document.getElementById("portfolio_value").innerHTML = `$${data.currentPortfolioValue}`
+
+            var roi = parseFloat(data.returnOnInvestment);
+            if (roi < 0) {
+                roi = Math.abs(roi);
+                document.getElementById("return_on_investment").innerHTML = `$${roi}`;
+                document.getElementById("return_on_investment").style="color: #FF0000;";
+            } else {
+                document.getElementById("return_on_investment").innerHTML = `$${roi}`;
+                document.getElementById("return_on_investment").style="color: white;";
+            }
+
+            var percentageReturn = parseFloat(data.percentageReturn);
+            var positive = true;;
+            if (percentageReturn < 0) {
+                positive = false;
+                percentageReturn = Math.abs(percentageReturn)
+                document.getElementById("portfolio_change").innerHTML = `-${percentageReturn}%`;
+                document.getElementById("portfolio_change").style="color: #FF0000;";
+            } else {
+                document.getElementById("portfolio_change").innerHTML = `+${percentageReturn}%`;
+                document.getElementById("portfolio_change").style="color: #00c814;";
+            }
+
+            createChart(data.portfolioTimeHistory, positive);
+        });
+    }
+
+    var portfolioChart = null;
+    function createChart(portfolioTimeHistory, positive) {
+        // Extract timestamps and total values
+        const labels = portfolioTimeHistory.map(entry => entry.timestamp);
+        const dataValues = portfolioTimeHistory.map(entry => parseFloat(entry.total_value));
+
+        // Create the chart
+        const ctx = document.getElementById('portfolioChart').getContext('2d');
+
+        if (portfolioChart != null) {
+            portfolioChart.destroy();
+        }
+
+        portfolioChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Portfolio Value',
+                    data: dataValues,
+                    borderColor: positive ? "#00c814" : "#FF0000",
+                    backgroundColor: 'rgba(0, 0, 0, 0)',
+                    borderWidth: 2,
+                    fill: false ,
+                    pointRadius: 0,
+                    lineTension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false // Hide the legend
+                    },
+                    tooltip: {
+                        enabled: false // Hide tooltips
+                    }
+                },
+                scales: {
+                    x: {
+                        display: false, // Hide x-axis
+                    },
+                    y: {
+                        display: false, // Hide y-axis
+                    }
+                }
+            }
+        });
+
+    }
+</script>

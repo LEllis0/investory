@@ -1,0 +1,52 @@
+
+    <div class="flex_col15">
+        <div class="flex_row9">
+            <p class="watchlistTitle">
+                Trending
+            </p>
+            <!--
+            <div class="watchlistInfo">
+                View more
+            </div>
+             -->
+        </div>
+        <div class="grid" id="trending_stocks_grid"></div>
+    </div>
+
+
+    <script>
+        fetch("<%= base_url %>/trending")
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+    
+                return response.json()
+            })
+            .then(response => {
+                var trending_stocks = document.getElementById("trending_stocks_grid");
+                trending_stocks.innerHTML = "";
+                
+                var trendingDate = response.data.slice(0, 6);
+
+                trendingDate.forEach(trending => {
+                    let pct_change = trending.change_percentage >= 0 ? "+" + trending.change_percentage : trending.change_percentage;
+                    let colorStyle = trending.change_percentage >= 0 ? 'color: #00c814;' : 'color: #FF0000;'; 
+                    trending_stocks.innerHTML += `
+                        <div class="trending_stock">
+                            <div class="flex_col16">
+                                <div class="trending_stock_info">
+                                    ${trending.ticker}
+                                </div>
+                                <div class="flex_row10">
+                                    <p class="trending_value">
+                                        $${trending.price}
+                                    </p>
+                                    <div class="trending_change_info" style="${colorStyle}">${pct_change}%</div>
+                                </div>
+                            </div>
+                        </div>
+                    `
+                })
+            })
+    </script>

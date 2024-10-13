@@ -1,0 +1,525 @@
+.dashboard.overviewSection {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: #ecedf2;
+    overflow: hidden;
+}
+.dashboard .flex_col {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 20px 0;
+    margin: 156px auto 43px;
+    width: auto;
+}
+.dashboard .overviewTitle {
+    font: 700 32px/1.21 Inter, Helvetica, Arial, serif;
+    color: #1b1b1b;
+}
+.dashboard .flex_row {
+    display: flex;
+    gap: 0 14px;
+    height: 800px;
+}
+.dashboard .flex_col1 {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    gap: 14px 0;
+    width: 841px;
+    height: 850px;
+    min-width: 0;
+
+}
+.dashboard .content_box1 {
+    display: flex;
+    flex-direction: column;
+    background-color: #1b1b1b;
+    border-radius: 20px;
+}
+.dashboard .flex_row1 {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0 10px;
+    margin: 30px auto 35px;
+    width: 91.2%;
+}
+.closeButton {
+    position: absolute;
+    top: 0px; /* Adjust as needed */
+    right: 0px; /* Adjust as needed */
+    background-color: white; /* Optional: style for visibility */
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+.dashboard .flex_col2 {
+    display: flex;
+    flex-direction: column;
+    width: 306px;
+    min-width: 0;
+    height: 300px;
+    margin-top: 10px;
+    justify-content: space-between;
+}
+.dashboard .flex_col3 {
+    display: flex;
+    flex-direction: column;
+    gap: 7px 0;
+    width: 207px;
+}
+.dashboard .portfolioHighlight {
+    font: 500 18px/1.22 Inter, Helvetica, Arial, serif;
+    color: white;
+}
+.dashboard .portfolioDate {
+    margin: 0 0 0 2px;
+    font: 500 12px/1.25 Inter, Helvetica, Arial, serif;
+    color: #bec0ce;
+    letter-spacing: -0.2px;
+}
+.dashboard .flex_row2 {
+    display: flex;
+    gap: 0 2px;
+    margin: 51px 0 0 2px;
+}
+.dashboard .portfolioValueTitle {
+    min-width: 0;
+    font: 700 40px/1.2 Inter, Helvetica, Arial, serif;
+    color: white;
+}
+.dashboard .portfolioChangeHighlight {
+    margin: 24px 0 5px;
+    min-width: 0;
+    font: 500 16px/1.18 Inter, Helvetica, Arial, serif;
+}
+.dashboard .flex_row3 {
+    display: flex;
+    gap: 0 21px;
+    margin: 50px 2px 0;
+}
+.dashboard .flex_col4 {
+    display: flex;
+    flex-direction: column;
+    gap: 9px 0;
+    width: 92px;
+    min-width: 0;
+}
+.dashboard .investmentTitle {
+    font: 500 12px/1.25 Inter, Helvetica, Arial, serif;
+    color: #bec0ce;
+}
+.dashboard .investedAmountHighlight {
+    font: 500 16px/1.18 Inter, Helvetica, Arial, serif;
+    color: white;
+}
+.dashboard .image3 {
+    margin: 8px 0 0;
+    width: 2px;
+    min-width: 0;
+    height: 35px;
+}
+.dashboard .flex_col5 {
+    display: flex;
+    flex-direction: column;
+    gap: 9px 0;
+    width: 81px;
+    min-width: 0;
+}
+.dashboard .returnTitle {
+    font: 500 12px/1.25 Inter, Helvetica, Arial, serif;
+    color: #bec0ce;
+}
+.dashboard .returnAmountHighlight {
+    font: 500 16px/1.18 Inter, Helvetica, Arial, serif;
+}
+.dashboard .flex_col6 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 90px 0;
+    width: 387px;
+    min-width: 0;
+}
+.dashboard .portfolioImage {
+    width: 100%;
+    border-radius: 7px;
+}
+.dashboard .flex_row4 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0 10px;
+    width: 98.19%;
+}
+.dashboard .timeframeActive {
+    display: flex;
+    justify-content: center;
+    min-width: 45px;
+    font: 500 13px/1.23 Inter, Helvetica, Arial, serif;
+    color: #1b1b1b;
+    text-align: center;
+    background-color: #d7fe03;
+    border-radius: 14.5px;
+    padding: 6.5px 12px 6.5px 15px;
+}
+.dashboard .timeframeButton {
+    min-width: 0;
+    font: 500 13px/1.23 Inter, Helvetica, Arial, serif;
+    color: white;
+    cursor: pointer;
+}
+.dashboard .flex_row5 {
+    display: flex;
+    gap: 0 15px;
+}
+.dashboard .content_box2 {
+    display: flex;
+    flex-direction: column;
+    width: 413px;
+    min-width: 0;
+    background-color: white;
+    border-radius: 20px;
+}
+.dashboard .flex_col7 {
+    display: flex;
+    flex-direction: column;
+    margin: 30px auto 38px;
+    width: 80.87%;
+}
+.dashboard .assetsHighlight {
+    font: 500 18px/1.22 Inter, Helvetica, Arial, serif;
+    color: #1b1b1b;
+}
+.dashboard .flex_row6 {
+    display: flex;
+    justify-content: space-between;
+    gap: 0 10px;
+    margin: 29px 0 0 1px;
+}
+.dashboard .rectPlaceholder1 {
+    width: 36px;
+    min-width: 0;
+    min-height: 36px;
+    background-color: #ecedf2;
+    border-radius: 18px;
+}
+.dashboard .flex_col8 {
+    display: flex;
+    flex-direction: column;
+    gap: 2px 0;
+    width: 62px;
+    min-width: 0;
+}
+.dashboard .flex_col9 {
+    display: flex;
+    justify-content: space-between;
+    width: 342.99px;   
+}
+
+.dashboard .flex_col19 {
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard .flex_row19{
+  display: flex;
+  gap: 25px;
+}
+
+
+.dashboard .flex_row7 {
+    display: flex;
+    justify-content: space-between;
+    gap: 0 10px;
+    margin: 17px 1px 0 0;
+}
+.dashboard .rectPlaceholder2 {
+    width: 36px;
+    min-width: 0;
+    min-height: 36px;
+    background-color: #ecedf2;
+    border-radius: 18px;
+}
+.dashboard .flex_col10 {
+    display: flex;
+    flex-direction: column;
+    gap: 2px 0;
+    width: 63px;
+    min-width: 0;
+}
+.dashboard .assetHighlight {
+    margin: 0 19px 0 0;
+    font: 400 16px/1.18 Inter, Helvetica, Arial, serif;
+    color: black;
+}
+.dashboard .assetHighlight:hover {
+    cursor: pointer;
+}
+.dashboard .assetSharesInfo {
+    font: 400 12px/1.25 Inter, Helvetica, Arial, serif;
+    color: #bec0ce;
+    letter-spacing: -0.31px;
+    width: 100px;
+}
+.dashboard .assetValueHighlight {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 0 0 38px;
+    font: 400 16px/1.18 Inter, Helvetica, Arial, serif;
+    color: black;
+    text-align: right;
+}
+.dashboard .assetChangeInfo {
+    display: flex;
+    justify-content: flex-end;
+    font: 400 12px/1.25 Inter, Helvetica, Arial, serif;
+    color: #00c814;
+    text-align: right;
+    letter-spacing: -0.4px;
+}
+.dashboard .flex_row8 {
+    display: flex;
+    justify-content: space-between;
+    gap: 0 10px;
+    margin: 17px 0 0;
+}
+.dashboard .rectPlaceholder3 {
+    width: 36px;
+    min-width: 0;
+    min-height: 36px;
+    background-color: #ecedf2;
+    border-radius: 18px;
+}
+.dashboard .flex_col11 {
+    display: flex;
+    flex-direction: column;
+    gap: 2px 0;
+    width: 58px;
+    min-width: 0;
+    height: 780.862px;
+}
+.dashboard .flex_col12 {
+    display: flex;
+    flex-direction: column;
+    gap: 2px 0;
+    width: 113px;
+    min-width: 0;
+}
+.dashboard .rectPlaceholder4 {
+    width: 36px;
+    min-width: 0;
+    min-height: 36px;
+    background-color: #ecedf2;
+    border-radius: 18px;
+}
+.dashboard .flex_col13 {
+    display: flex;
+    flex-direction: column;
+    gap: 2px 0;
+    width: 72px;
+    min-width: 0;
+}
+.dashboard .content_box3 {
+    display: flex;
+    flex-direction: column;
+    flex:1;
+    width: 413px;
+    min-width: 0;
+    background-color: white;
+    border-radius: 20px;
+}
+.dashboard .allocationHighlight {
+    margin: 30px 0 60px 30px; /* Bottom margin is 60px */
+    width: 86px;
+    font: 500 18px/1.22 Inter, Helvetica, Arial, serif;
+    color: #1b1b1b;
+}
+.dashboard .flex_col14 {
+    display: flex;
+    flex-direction: column;
+    gap: 14px 0;
+    width: 400px;
+    min-width: 0;
+    justify-content: space-between;
+    height: 780px;
+}
+.dashboard .trending_section {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 20px;
+}
+.dashboard .flex_col15 {
+    display: flex;
+    flex-direction: column;
+    gap: 33px 0;
+    margin: 30px 27px 37px 30px;
+}
+.dashboard .flex_row9 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0 10px;
+}
+
+.dashboard .flex_row18{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+}
+.dashboard .watchlistTitle {
+    min-width: 0;
+    font: 500 18px/1.22 Inter, Helvetica, Arial, serif;
+    color: #1b1b1b;
+    letter-spacing: -0.1px;
+}
+.dashboard .watchlistInfo {
+    margin: 6px 0 1px;
+    min-width: 0;
+    font: 500 12px/1.25 Inter, Helvetica, Arial, serif;
+    color: black;
+    text-decoration: underline;
+}
+.dashboard .grid {
+    display: grid;
+    align-content: start;
+    gap: 7px 5px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.dashboard .watchlistItemFTSE100 {
+    display: flex;
+    flex-direction: column;
+    grid-row: span 1;
+    grid-column: span 1;
+    background: var(--src) center center/100% 100% no-repeat;
+}
+.dashboard .flex_col16 {
+    display: flex;
+    flex-direction: column;
+    gap: 16px 0;
+    margin: 17px 13px 18px 18px;
+}
+.dashboard .ftse100Info {
+    font: 500 12px/1.25 Inter, Helvetica, Arial, serif;
+    color: black;
+    letter-spacing: -0.2px;
+}
+.dashboard .highlight4 {
+    min-width: 0;
+    font: 600 16px/1.18 Inter, Helvetica, Arial, serif;
+    color: black;
+}
+.dashboard .ftse100ValueInfo {
+    margin: 4px 0 0;
+    min-width: 0;
+    font: 500 12px/1.25 Inter, Helvetica, Arial, serif;
+    color: #00c814;
+    letter-spacing: -0.7px;
+}
+.dashboard .trending_stock {
+    display: flex;
+    flex-direction: column;
+    grid-row: span 1;
+    grid-column: span 1;
+    background-color: #ecedf2;
+    border-radius: 20px;
+}
+.dashboard .trending_stock_info {
+    font: 500 12px/1.25 Inter, Helvetica, Arial, serif;
+    color: black;
+    letter-spacing: -0.1px;
+}
+.dashboard .trending_value {
+    min-width: 0;
+    font: 600 16px/1.18 Inter, Helvetica, Arial, serif;
+    color: black;
+}
+.dashboard .trending_change_info {
+    margin: 4px 0 0;
+    min-width: 0;
+    font: 500 12px/1.25 Inter, Helvetica, Arial, serif;
+    color: #00c814;
+    letter-spacing: -0.7px;
+}
+.dashboard .ftse100AnotherDuplicateChangeInfo {
+    margin: 4px 0 0;
+    min-width: 0;
+    font: 500 12px/1.25 Inter, Helvetica, Arial, serif;
+    color: #00c814;
+    letter-spacing: -0.7px;
+}
+.dashboard .newsSection {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 20px;
+  
+}
+.dashboard .flex_col17 {
+    display: flex;
+    flex-direction: column;
+    margin: 30px 27px 31px 30px;
+}
+.dashboard .newsHighlight {
+    min-width: 0;
+    font: 500 18px/1.22 Inter, Helvetica, Arial, serif;
+    color: #1b1b1b;
+}
+.dashboard .newsInfo {
+    margin: 4px 0 3px;
+    min-width: 0;
+    font: 500 12px/1.25 Inter, Helvetica, Arial, serif;
+    color: black;
+    text-decoration: underline;
+}
+.dashboard .newsItem1 {
+    display: flex;
+    align-items: center;
+    gap: 0 23px;
+    margin: 19px 0 0;
+}
+.dashboard .rect9 {
+    width: 86px;
+    min-width: 0;
+    height: 59px;
+    min-height: 59px;
+    background-color: #ecedf2;
+}
+.dashboard .flex_col18 {
+    display: flex;
+    flex-direction: column;
+    gap: 5px 0;
+    width: 234px;
+    min-width: 0;
+}
+.dashboard .newsContent1 {
+    font: 500 12px/1.25 Inter, Helvetica, Arial, serif;
+    color: black;
+}
+.dashboard .newsTimeStamp1 {
+    font: 500 10px/1.2 Inter, Helvetica, Arial, serif;
+    color: #bec0ce;
+    letter-spacing: -0.1px;
+}
+.dashboard .newsItem2 {
+    display: flex;
+    align-items: center;
+    gap: 0 23px;
+    margin: 17px 0 0;
+}
+.dashboard .newsContent2 {
+    font: 500 12px/1.25 Inter, Helvetica, Arial, serif;
+    color: black;
+}
+.dashboard .newsTimeStamp2 {
+    font: 500 10px/1.2 Inter, Helvetica, Arial, serif;
+    color: #bec0ce;
+    letter-spacing: -0.1px;
+}

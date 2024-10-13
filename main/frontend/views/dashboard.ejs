@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard | Investory</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css" href="./css/common.css" />
+    <link rel="stylesheet" type="text/css" href="./css/global.css" />
+    <link rel="stylesheet" type="text/css" href="./css/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="./css/dashboard.css" />
+</head>
+
+<body class="flex-column">
+    <section class="dashboard overviewSection">
+        <%- include('partials/nav') %>
+        <div class="flex_col">
+            <h1 class="overviewTitle">
+                Overview
+            </h1>
+            <div class="flex_row">
+                <div class="flex_col1">
+                    <div class="content_box1" id="main_tile">
+                        <%- include('partials/dashboard/main_tile') %>
+                    </div>
+                    <div class="content_box1" id="stock_history" style="display: none;">
+                        <%- include('partials/dashboard/stock_history_tile') %>
+                    </div>
+                    <div class="flex_row5">
+                        <div class="content_box2">
+                            <%- include('partials/dashboard/assets') %>
+                        </div>
+                        <div class="content_box3">
+                            <%- include('partials/dashboard/allocation') %>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex_col14">
+                    <div class="trending_section">
+                        <%- include('partials/dashboard/trending') %>
+                    </div>
+                    <div class="newsSection">
+                        <%- include('partials/dashboard/news') %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+
+<script>
+    async function showStockHistoryChart(ticker) {
+        await updateStockHistoryChart(ticker);
+
+        var mainTile = document.getElementById("main_tile");
+        var stockHistoryTile = document.getElementById("stock_history");
+
+        mainTile.style="display: none;";
+        stockHistoryTile.style="";
+    };
+</script>

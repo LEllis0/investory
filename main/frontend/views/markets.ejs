@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Market Info | Investory</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css" href="./css/common.css" />
+    <link rel="stylesheet" type="text/css" href="./css/global.css" />
+    <link rel="stylesheet" type="text/css" href="./css/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="./css/markets.css" />
+</head>
+
+<body class="flex-column">
+    <section class="marketv4 marketSection">
+        <%- include('partials/nav') %>
+        <div class="flex_col">
+            <h1 class="marketTitle">Market</h1>
+            <div class="marketContentWrapper">
+                <!-- Wrapper for market data and trending statistics -->
+                <div class="content_box2">
+                    <div class="flex_col1">
+                        <p class="indexFundsLabel">Market Indices</p>
+                        <div class="marketGrid" id="indexFundsGrid"> </div>
+                    </div>
+                </div>
+                <div class="trendingSection">
+                    <!-- Section for trending market items -->
+                    <div class="flex_col3">
+                        <p class="trendingLabel">Trending</p>
+                        <div class="trendingGrid" id="trendingGrid"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="worldFinancialNewsSection">
+                <!-- Section displaying world financial news articles -->
+                <h3 class="worldFinancialNewsSubtitle">World Financial News</h3>
+                <div class="newsGrid" id="newsGrid"></div>
+            </div>
+            <div class="flexRowAdditionalImages">
+                <img id="left_arrow" class="additionalImage1" src="./assets/left_arrow.svg" alt="Previous Page" />
+                <p id="page_indicator" class="textFraction1">1/4</p>
+                <img id="right_arrow" class="additionalImage2" src="./assets/right_arrow.svg" alt="Next Page" />
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+
+<script>
+    // First update index funds
+    fetch("<%= base_url %>/indexes")
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(response => {
+            var indexesSection = document.getElementById("indexFundsGrid");
+            indexesSection.innerHTML = "";
+
+            response.data.forEach(index => {
+                var marketChange = "";
+
+                if (index.positiveChange) {
+                    marketChange = `<div class="marketIndexChange">+ ${index.percentChange}%</div>`
+                } else {
+                    marketChange = `<div class="marketIndexChangeRed">- ${index.percentChange}%</div>`
+                }
+
+                var currentPrice = parseFloat(index.currentPrice).toFixed(2);
+                
+                indexesSection.innerHTML += `
+                    <div class="item"">
+                        <div class="marketItem">
+                            <div class="marketIndexLabel">${index.name}</div>
+                            <div class="flex_row">
+                                <p class="marketIndexValue">${currentPrice}</p>
+                                ${marketChange}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            })
+        })
+        .catch(error => console.error('Error fetching indexes:', error));
+
+    // Also update trending stocks
+    fetch("<%= base_url %>/trending")
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+
+            return response.json()
+        })
+        .then(response => {
+            var trending_stocks = document.getElementById("trendingGrid");
+            trending_stocks.innerHTML = "";
+            
+            var trendingDate = response.data.slice(0, 9);
+
+            trendingDate.forEach(trending => {
+                var changePercentage = parseFloat(trending.change_percentage).toFixed(2);
+                let pctChange = changePercentage >= 0 ? "+" + changePercentage : changePercentage;
+                let colorStyle = trending.change_percentage >= 0 ? 'color: #00c814;' : 'color: #FF0000;'; 
+                var price = parseFloat(trending.price).toFixed(2);
+
+                trending_stocks.innerHTML += `
+                    <div class="trendingItem" style="--src:url(../assets/d4e95fc9f0b785dd4f36b4beeb3d47b9.svg)">
+                        <div class="trendingIndexLabel">
+                            <div class="info2">${trending.ticker}</div>
+                            <div class="flex_row">
+                                <p class="trendingIndexValue">$${price}</p>
+                                <div class="trendingIndexChange" style="${colorStyle}">${pctChange}%</div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            })
+        })
+
+    // Finally getting news 
+    var news = [];
+    fetch("<%= base_url %>/news/50")
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(response => {
+            news = response.data;
+            totalPages = Math.ceil(news.length / itemsPerPage);
+            renderPage(1);
+            console.log(news);
+        })
+        .catch(error => console.error('Error fetching news:', error));
+
+    const itemsPerPage = 4;
+    let currentPage = 1;
+    let totalPages = 1;
+
+    function renderPage(page) {
+        var newsGrid = document.getElementById('newsGrid');
+        newsGrid.innerHTML = "";
+        var currentDate = new Date();
+
+        const startIndex = (page - 1) * itemsPerPage;
+        const endIndex = startIndex + itemsPerPage;
+        const pageItems = news.slice(startIndex, endIndex);
+        pageItems.forEach(newsArticle => {
+            var date = new Date(newsArticle.date);
+            var hours = parseFloat(Math.abs(currentDate - date) / 36e5).toFixed(0);
+            
+            var pill = newsArticle.forYou ? "FOR YOU" : newsArticle.tickers[0];
+            var title = newsArticle.title.length > 90 ? newsArticle.title.slice(0, 90) + "..." : newsArticle.title;
+            newsGrid.innerHTML += `
+                <div class="newsArticle">
+                    <div class="newsImage">
+                        <img class="rect5" src="${newsArticle.image}">
+                        <a href="${newsArticle.link}" class="newsDescription">${title}</a>
+                        <div class="newsInfoWrapper">
+                            <div class="newsSourceLabel">
+                                <div class="info">${newsArticle.provider}</div>
+                                <div class="info">|</div>
+                                <div class="info">${hours}h</div>
+                            </div>
+                            <button class="newsButton">
+                                ${pill}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `});
+
+            updatePageIndicator();
+            updateArrows();
+        }
+
+        function updatePageIndicator() {
+            const pageIndicator = document.getElementById("page_indicator");
+            pageIndicator.textContent = `${currentPage}/${totalPages}`;
+        }
+
+        function updateArrows() {
+            const leftArrow = document.getElementById("left_arrow");
+            const rightArrow = document.getElementById("right_arrow");
+
+            leftArrow.style.visibility = currentPage === 1 ? 'hidden' : 'visible';
+            rightArrow.style.visibility = currentPage === totalPages ? 'hidden' : 'visible';
+        }
+
+        function goToNextPage() {
+            if (currentPage < totalPages) {
+                currentPage++;
+                renderPage(currentPage);
+            }
+        }
+        function goToPreviousPage() {
+            if (currentPage > 1) {
+                currentPage--;
+                renderPage(currentPage);
+            }
+        }
+
+    document.getElementById("right_arrow").addEventListener("click", goToNextPage);
+    document.getElementById("left_arrow").addEventListener("click", goToPreviousPage);
+</script>

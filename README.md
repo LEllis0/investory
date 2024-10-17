@@ -1,3 +1,3 @@
-Investory - Investment Portfolio Application
+# Investory - Investment Portfolio Application
 
-Developed as a team project
+Developed as a project in a team of four.
